@@ -1,17 +1,17 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Funcionalidad del menú hamburguesa
+document.addEventListener('DOMContentLoaded', () => {
+  // Menú hamburguesa
   const toggleButton = document.querySelector('.menu-toggle');
   const navMenu = document.getElementById('nav-menu');
 
   if (toggleButton && navMenu) {
-    toggleButton.addEventListener('click', function () {
+    toggleButton.addEventListener('click', () => {
       const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
       toggleButton.setAttribute('aria-expanded', String(!isExpanded));
       navMenu.classList.toggle('active');
     });
   }
 
-  // Funcionalidad del banner de cookies
+  // Banner de cookies
   const cookieBanner = document.getElementById('cookie-banner');
   const acceptCookiesBtn = document.getElementById('accept-cookies');
 
