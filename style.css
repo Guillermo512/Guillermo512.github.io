@@ -74,10 +74,20 @@ header {
 
   .nav-menu ul {
     flex-direction: column;
+    align-items: flex-start; /* Cambiado de flex-end a flex-start */
+    padding-left: 0; /* Opcional para quitar indentación */
+  }
+
+  .nav-menu li {
+    width: 100%;
+    margin: 5px 0;
   }
 
   .nav-menu a {
-    padding: 15px;
+    width: 100%; /* Que los links llenen todo el ancho */
+    margin-right: 0;
+    padding: 12px 20px;
+    border-radius: 0; /* Bordes cuadrados en móvil */
   }
 }
 
@@ -352,7 +362,8 @@ footer {
 
   .nav-menu ul {
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start; /* Ajuste para que el menú sea vertical y alineado a la izquierda */
+    padding-left: 0;
   }
 
   .nav-menu li {
@@ -361,9 +372,10 @@ footer {
   }
 
   .nav-menu a {
-    width: auto;
+    width: 100%;
     margin-right: 0;
     padding: 12px 20px;
+    border-radius: 0;
   }
 
   .categoria-menu {

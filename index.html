@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Estandares de red</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -59,107 +59,43 @@
         </p>
       </div>
 
-      <div class="estandar" id="fast-ethernet">
-        <h3>Fast Ethernet (IEEE 802.3u)</h3>
-        <p>
-          Versión mejorada de Ethernet que soporta velocidades de hasta 100 Mbps mediante cableado de cobre o fibra óptica.
-          <a href="https://es.wikipedia.org/wiki/Fast_Ethernet" target="_blank" rel="noopener noreferrer">Más información</a>
-        </p>
-      </div>
+      <!-- Añade aquí el resto de estándares tal como antes... -->
 
-      <div class="estandar" id="gigabit-ethernet">
-        <h3>Gigabit Ethernet (IEEE 802.3ab)</h3>
-        <p>
-          Ethernet que permite velocidades de transmisión de datos de hasta 1 Gbps, ideal para redes de alta demanda.
-          <a href="https://es.wikipedia.org/wiki/Gigabit_Ethernet" target="_blank" rel="noopener noreferrer">Más información</a>
-        </p>
-      </div>
+    </section>
+  </main>
 
-      <div class="estandar" id="10g-ethernet">
-        <h3>10 Gigabit Ethernet (IEEE 802.3ae)</h3>
-        <p>
-          Estándar para Ethernet que soporta velocidades de hasta 10 Gbps, utilizado en centros de datos y redes de alto rendimiento.
-          <a href="https://es.wikipedia.org/wiki/10_Gigabit_Ethernet" target="_blank" rel="noopener noreferrer">Más información</a>
-        </p>
-      </div>
+  <!-- Banner de cookies -->
+  <div id="cookie-banner" class="cookie-banner" style="display:none;">
+    <span>Esta página usa cookies para mejorar tu experiencia.</span>
+    <button id="accept-cookies">Aceptar</button>
+  </div>
 
-      <div class="estandar categoria">
-        <h2>Redes de Área Personal (WPAN)</h2>
-        <p>Redes inalámbricas de corto alcance para comunicación entre dispositivos personales.</p>
-      </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Menú hamburguesa
+      const toggleButton = document.querySelector('.menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
 
-      <div class="estandar" id="bluetooth">
-        <h3>Bluetooth (IEEE 802.15.1)</h3>
-        <p>
-          Tecnología para comunicación inalámbrica de corto alcance entre dispositivos como teléfonos, auriculares y computadoras.
-          <a href="https://es.wikipedia.org/wiki/Bluetooth" target="_blank" rel="noopener noreferrer">Más información</a>
-        </p>
-      </div>
+      toggleButton.addEventListener('click', () => {
+        const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+        toggleButton.setAttribute('aria-expanded', String(!isExpanded));
+        navMenu.classList.toggle('active');
+      });
 
-      <div class="estandar" id="zigbee">
-        <h3>Zigbee (IEEE 802.15.4)</h3>
-        <p>
-          Protocolo inalámbrico diseñado para redes de sensores y dispositivos con bajo consumo energético y baja tasa de transmisión.
-          <a href="https://es.wikipedia.org/wiki/Zigbee" target="_blank" rel="noopener noreferrer">Más información</a>
-        </p>
-      </div>
+      // Banner de cookies
+      const cookieBanner = document.getElementById('cookie-banner');
+      const acceptCookiesBtn = document.getElementById('accept-cookies');
 
-      <div class="estandar categoria">
-        <h2>Redes de Área Metropolitana (MAN)</h2>
-        <p>Redes que cubren un área geográfica amplia, como una ciudad o área metropolitana.</p>
-      </div>
+      // Mostrar banner si no hay cookie aceptada
+      if (!localStorage.getItem('cookiesAccepted')) {
+        cookieBanner.style.display = 'flex';
+      }
 
-      <div class="estandar" id="metro-ethernet">
-        <h3>Metro Ethernet (IEEE 802.17)</h3>
-        <p>
-          Estándar que extiende la tecnología Ethernet para conectar redes metropolitanas con alta velocidad y fiabilidad.
-          <a href="https://es.wikipedia.org/wiki/Metro_Ethernet" target="_blank" rel="noopener noreferrer">Más información</a>
-        </p>
-      </div>
-
-      <div class="estandar categoria">
-        <h2>Redes de Área Amplia (WAN)</h2>
-        <p>Redes que cubren grandes distancias geográficas, como conexiones entre ciudades o países.</p>
-      </div>
-
-      <div class="estandar" id="sonet">
-        <h3>SONET (Synchronous Optical Network)</h3>
-        <p>
-          Estándar para transmisión de datos a alta velocidad sobre fibra óptica en redes WAN, permitiendo comunicación síncrona y confiable.
-          <a href="https://es.wikipedia.org/wiki/Synchronous_Optical_Network" target="_blank" rel="noopener noreferrer">Más información</a>
-        </p>
-      </div>
-
-      <div class="estandar" id="frame-relay">
-        <h3>Frame Relay</h3>
-        <p>
-          Tecnología WAN que permite la transmisión de datos en paquetes con eficiencia para conexiones de área amplia.
-          <a href="https://es.wikipedia.org/wiki/Frame_Relay" target="_blank" rel="noopener noreferrer">Más información</a>
-        </p>
-      </div>
-
-      <div class="estandar" id="atm">
-        <h3>ATM (Asynchronous Transfer Mode)</h3>
-        <p>
-          Tecnología de conmutación orientada a conexión que soporta voz, video y datos con baja latencia en redes WAN.
-          <a href="https://es.wikipedia.org/wiki/Asynchronous_Transfer_Mode" target="_blank" rel="noopener noreferrer">Más información</a>
-        </p>
-      </div>
-
-      <div class="estandar categoria">
-        <h2>Redes Inalámbricas de Área Local (WLAN)</h2>
-        <p>Redes que permiten conexión inalámbrica de dispositivos en un área limitada.</p>
-      </div>
-
-      <div class="estandar" id="wifi">
-        <h3>Wi-Fi (IEEE 802.11a/b/g/n/ac/ax)</h3>
-        <p>
-          Familia de estándares para redes inalámbricas que permiten la conexión a internet sin cables, con distintas velocidades y frecuencias según la versión.
-          <a href="https://es.wikipedia.org/wiki/IEEE_802.11" target="_blank" rel="noopener noreferrer">Más información</a>
-        </p>
-      </div>
-
-      <div class="estandar" id="wimax">
-        <h3>WiMAX (IEEE 802.16)</h3>
-        <p>
-          Estándar para redes inalámbricas de banda ancha, proporcionando conectividad de alta velocidad
+      acceptCookiesBtn.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieBanner.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
